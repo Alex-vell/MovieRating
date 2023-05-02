@@ -2,7 +2,22 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+Install dependencies:
+
+```bash
+npm install
+# or
+yarn
+```
+
+Run the JSON server:
+```bash
+npm run server
+# or
+yarn server
+```
+
+Run the development server:
 
 ```bash
 npm run dev
@@ -12,12 +27,6 @@ yarn dev
 pnpm dev
 ```
 
-Run the JSON server:
-```bash
-npm run server
-# or
-yarn server
-```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
