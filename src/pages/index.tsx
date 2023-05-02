@@ -2,7 +2,7 @@ import { GetServerSideProps, GetServerSidePropsContext } from 'next';
 import { FC, useState } from 'react';
 import { Film, SelectDada } from '@/types';
 import FilmListItem from '@/components/FilmListItem/FilmListItem';
-import { getData } from '@/pages/api/users/users';
+import { getData } from '@/pages/api/films/films';
 import { BASE_URL } from '@/shared/constants/url';
 import Head from 'next/head';
 import { getSelectData } from '@/shared/utils/getSelectData';
@@ -24,8 +24,8 @@ const Home: FC<HomeProps> = ({ films }) => {
 
   const handleTypeChange = (type: SingleValue<SelectDada>) => {
     const queryParams = selectedYearOption
-      ? { year: selectedYearOption.value, type: type?.value }
-      : { year: '', type: type?.value };
+      ? { year: selectedYearOption.value, type: type!.value }
+      : { year: '', type: type!.value };
     setSelectedTypeOption(type);
     getData(queryParams)
       .then((res) => {
@@ -38,8 +38,8 @@ const Home: FC<HomeProps> = ({ films }) => {
 
   const handleYearChange = (year: SingleValue<SelectDada>) => {
     const queryParams = selectedTypeOption
-      ? { year: year?.value, type: selectedTypeOption.value }
-      : { year: year?.value, type: '' };
+      ? { year: year!.value, type: selectedTypeOption.value }
+      : { year: year!.value, type: '' };
 
     setSelectedYearOption(year);
     getData(queryParams)

@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { ResponseData } from '@/types';
 import { BASE_URL } from '@/shared/constants/url';
 
-export async function getData(params: Partial<{ [p: string]: any }>) {
+export async function getData(params: Partial<{ [p: string]: string | string[] }>) {
     const { type, year } = params;
     const response = await fetch(
       `${BASE_URL}${type ? `?type=${type}` : ''}${year ? type ? `&year=${year}` : `?year=${year}` : ''}`,
